@@ -1,8 +1,22 @@
+import { Toaster } from 'react-hot-toast';
+import { GlobalStyle } from './styles/global';
+import { ResetStyle } from './styles/reset';
+
 function App() {
   return (
-    <div>
-      <h1>Vehicle Commerce</h1>
-    </div>
+    <>
+      <Toaster
+        position='top-center'
+        toastOptions={{
+          style: {
+            background: '#0B0D0D',
+            color: 'white',
+          },
+        }}
+      />
+      <GlobalStyle />
+      <ResetStyle />
+    </>
   );
 }
 
