@@ -1,10 +1,11 @@
 import { Toaster } from 'react-hot-toast';
+import { GlobalProvider } from './contexts';
 import { GlobalStyle } from './styles/global';
 import { ResetStyle } from './styles/reset';
 
 function App() {
   return (
-    <>
+    <GlobalProvider>
       <Toaster
         position='top-center'
         toastOptions={{
@@ -16,7 +17,7 @@ function App() {
       />
       <GlobalStyle />
       <ResetStyle />
-    </>
+    </GlobalProvider>
   );
 }
 
