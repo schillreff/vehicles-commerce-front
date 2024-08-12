@@ -1,5 +1,8 @@
 import { Toaster } from 'react-hot-toast';
+import { Footer } from './components/Footer';
+import { Section } from './components/Section';
 import { GlobalProvider } from './contexts';
+import { RoutesMain } from './routes';
 import { GlobalStyle } from './styles/global';
 import { ResetStyle } from './styles/reset';
 
@@ -17,6 +20,10 @@ function App() {
       />
       <GlobalStyle />
       <ResetStyle />
+      <Section>
+        <RoutesMain />
+      </Section>
+      <Footer />
     </GlobalProvider>
   );
 }
