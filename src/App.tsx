@@ -1,5 +1,6 @@
 import { Toaster } from 'react-hot-toast';
 import { Footer } from './components/Footer';
+import { NavBar } from './components/NavBar';
 import { Section } from './components/Section';
 import { GlobalProvider } from './contexts';
 import { RoutesMain } from './routes';
@@ -20,6 +21,7 @@ function App() {
       />
       <GlobalStyle />
       <ResetStyle />
+      <NavBar />
       <Section>
         <RoutesMain />
       </Section>
