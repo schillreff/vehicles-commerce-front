@@ -31,7 +31,7 @@ export const NavBar = () => {
 
   return (
     <StyledContainerHeader>
-      <StyledNavBar buttonMenu={buttonMenu} userMenu={userMenu}>
+      <StyledNavBar $buttonMenu={buttonMenu} $userMenu={userMenu}>
         <Link to={'/'}>
           <img src={logo} alt='logo' />
         </Link>
@@ -116,14 +116,14 @@ export const NavBar = () => {
               <div className='header-nav__ul__buttons'>
                 <Button
                   type='button'
-                  size='big'
-                  width='100%'
-                  backgroundColor='--color-brand1'
-                  color='--color-white'
-                  borderColor='--color-brand1'
-                  hoverBackgroundColor='--color-brand4'
-                  hoverColor='--color-brand1'
-                  hoverBorderColor='--color-brand4'
+                  $size='big'
+                  $width='100%'
+                  $backgroundColor='--color-brand1'
+                  $color='--color-white'
+                  $borderColor='--color-brand1'
+                  $hoverBackgroundColor='--color-brand4'
+                  $hoverColor='--color-brand1'
+                  $hoverBorderColor='--color-brand4'
                   onClick={() => {
                     setUserMenu(false);
                     setButtonMenu(false);
@@ -135,14 +135,14 @@ export const NavBar = () => {
 
                 <Button
                   type='button'
-                  size='big'
-                  width='100%'
-                  color='--color-gray0'
-                  backgroundColor='--color-gray10'
-                  borderColor='--color-gray4'
-                  hoverColor='--color-white'
-                  hoverBackgroundColor='--color-gray1'
-                  hoverBorderColor='--color-gray1'
+                  $size='big'
+                  $width='100%'
+                  $color='--color-gray0'
+                  $backgroundColor='--color-gray10'
+                  $borderColor='--color-gray4'
+                  $hoverColor='--color-white'
+                  $hoverBackgroundColor='--color-gray1'
+                  $hoverBorderColor='--color-gray1'
                   onClick={() => {
                     setUserMenu(false);
                     setButtonMenu(false);

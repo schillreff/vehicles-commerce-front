@@ -126,12 +126,12 @@ const ProductCard = ({ product, viewButtons, isActive }: IProductCardProps) => {
         <div className='productButtonsContainer'>
           <Button
             type='button'
-            width='fit-content'
-            buttonText=''
-            backgroundColor='--color-grey8'
-            color='--color-grey1'
-            borderColor='--color-grey1'
-            borderLength='2px'
+            $width='fit-content'
+            $buttonText=''
+            $backgroundColor='--color-grey8'
+            $color='--color-grey1'
+            $borderColor='--color-grey1'
+            $borderLength='2px'
             onClick={() => {
               setAnnouncement(product);
               setIsUpdateAnnouncement(true);
@@ -142,12 +142,12 @@ const ProductCard = ({ product, viewButtons, isActive }: IProductCardProps) => {
 
           <Button
             type='button'
-            width='fit-content'
-            buttonText=''
-            backgroundColor='--color-grey8'
-            color='--color-grey1'
-            borderColor='--color-grey1'
-            borderLength='2px'
+            $width='fit-content'
+            $buttonText=''
+            $backgroundColor='--color-grey8'
+            $color='--color-grey1'
+            $borderColor='--color-grey1'
+            $borderLength='2px'
             onClick={() => {
               listAnnouncementById(product.id);
               goTo(`/product?announcement=${product.id}`);

@@ -22,14 +22,14 @@ export const Slogan = () => {
           <a href='#car'>
             <Button
               type='submit'
-              size='big'
-              width='100%'
-              backgroundColor='--color-brand1'
-              color='--color-gray10'
-              borderColor='--color-gray10'
-              hoverBackgroundColor='--color-gray10'
-              hoverColor='--color-brand1'
-              hoverBorderColor='--color-gray10'
+              $size='big'
+              $width='100%'
+              $backgroundColor='--color-brand1'
+              $color='--color-gray10'
+              $borderColor='--color-gray10'
+              $hoverBackgroundColor='--color-gray10'
+              $hoverColor='--color-brand1'
+              $hoverBorderColor='--color-gray10'
             >
               Carros
             </Button>
@@ -37,14 +37,14 @@ export const Slogan = () => {
           <a href='#motorcycle'>
             <Button
               type='submit'
-              size='big'
-              width='100%'
-              backgroundColor='--color-brand1'
-              color='--color-gray10'
-              borderColor='--color-gray10'
-              hoverBackgroundColor='--color-gray10'
-              hoverColor='--color-brand1'
-              hoverBorderColor='--color-gray10'
+              $size='big'
+              $width='100%'
+              $backgroundColor='--color-brand1'
+              $color='--color-gray10'
+              $borderColor='--color-gray10'
+              $hoverBackgroundColor='--color-gray10'
+              $hoverColor='--color-brand1'
+              $hoverBorderColor='--color-gray10'
             >
               Motos
             </Button>
