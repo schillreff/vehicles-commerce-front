@@ -32,13 +32,13 @@ export const DeleteUserForm = () => {
         <div className='delete-user-form__buttons'>
           <Button
             type='button'
-            size='big'
-            color='--color-gray0'
-            backgroundColor='--color-gray10'
-            borderColor='--color-gray4'
-            hoverColor='--color-white'
-            hoverBackgroundColor='--color-gray1'
-            hoverBorderColor='--color-gray1'
+            $size='big'
+            $color='--color-gray0'
+            $backgroundColor='--color-gray10'
+            $borderColor='--color-gray4'
+            $hoverColor='--color-white'
+            $hoverBackgroundColor='--color-gray1'
+            $hoverBorderColor='--color-gray1'
             onClick={() => setModalUser({ ...modalUser, deleteUser: false })}
           >
             Cancelar
@@ -46,13 +46,13 @@ export const DeleteUserForm = () => {
 
           <Button
             type='submit'
-            size='big'
-            backgroundColor='--color-alert3'
-            color='--color-alert1'
-            borderColor='--color-alert3'
-            hoverBackgroundColor='--color-alert1'
-            hoverColor='--color-gray10'
-            hoverBorderColor='--color-alert1'
+            $size='big'
+            $backgroundColor='--color-alert3'
+            $color='--color-alert1'
+            $borderColor='--color-alert3'
+            $hoverBackgroundColor='--color-alert1'
+            $hoverColor='--color-gray10'
+            $hoverBorderColor='--color-alert1'
             onClick={() => deleteUser()}
           >
             Excluir

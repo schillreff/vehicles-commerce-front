@@ -199,14 +199,14 @@ export const Register = () => {
 
         <Button
           type='submit'
-          size='big'
-          width='100%'
-          backgroundColor='--color-brand1'
-          color='--color-white'
-          borderColor='--color-brand1'
-          hoverBackgroundColor='--color-brand4'
-          hoverColor='--color-brand1'
-          hoverBorderColor='--color-brand4'
+          $size='big'
+          $width='100%'
+          $backgroundColor='--color-brand1'
+          $color='--color-white'
+          $borderColor='--color-brand1'
+          $hoverBackgroundColor='--color-brand4'
+          $hoverColor='--color-brand1'
+          $hoverBorderColor='--color-brand4'
         >
           Finalizar Cadastro
         </Button>

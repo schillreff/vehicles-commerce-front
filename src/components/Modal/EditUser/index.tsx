@@ -104,13 +104,13 @@ export const EditUserForm = ({ user }: IEditUserFormProps) => {
           <div className='edit-user-form__buttons'>
             <Button
               type='button'
-              size='big'
-              color='--color-gray0'
-              backgroundColor='--color-gray10'
-              borderColor='--color-gray4'
-              hoverColor='--color-white'
-              hoverBackgroundColor='--color-gray1'
-              hoverBorderColor='--color-gray1'
+              $size='big'
+              $color='--color-gray0'
+              $backgroundColor='--color-gray10'
+              $borderColor='--color-gray4'
+              $hoverColor='--color-white'
+              $hoverBackgroundColor='--color-gray1'
+              $hoverBorderColor='--color-gray1'
               onClick={() =>
                 setModalUser({
                   ...modalUser,
@@ -124,13 +124,13 @@ export const EditUserForm = ({ user }: IEditUserFormProps) => {
 
             <Button
               type='submit'
-              size='big'
-              backgroundColor='--color-brand1'
-              color='--color-white'
-              borderColor='--color-brand1'
-              hoverBackgroundColor='--color-brand4'
-              hoverColor='--color-brand1'
-              hoverBorderColor='--color-brand4'
+              $size='big'
+              $backgroundColor='--color-brand1'
+              $color='--color-white'
+              $borderColor='--color-brand1'
+              $hoverBackgroundColor='--color-brand4'
+              $hoverColor='--color-brand1'
+              $hoverBorderColor='--color-brand4'
             >
               Salvar
             </Button>

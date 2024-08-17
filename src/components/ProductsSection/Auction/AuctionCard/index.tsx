@@ -98,14 +98,14 @@ export const AuctionCard = ({ auction, viewButtons }: IAuctionCardProps) => {
           <div className='auction-nav__buttons'>
             <Button
               type='submit'
-              size='big'
-              width='100%'
-              backgroundColor='--color-brand1'
-              color='--color-gray10'
-              borderColor='--color-gray10'
-              hoverBackgroundColor='--color-gray10'
-              hoverColor='--color-brand1'
-              hoverBorderColor='--color-gray10'
+              $size='big'
+              $width='100%'
+              $backgroundColor='--color-brand1'
+              $color='--color-gray10'
+              $borderColor='--color-gray10'
+              $hoverBackgroundColor='--color-gray10'
+              $hoverColor='--color-brand1'
+              $hoverBorderColor='--color-gray10'
               onClick={() => {
                 // setAnnouncement(auction);
                 // setIsUpdateAnnouncement(true);
@@ -116,14 +116,14 @@ export const AuctionCard = ({ auction, viewButtons }: IAuctionCardProps) => {
 
             <Button
               type='submit'
-              size='big'
-              width='100%'
-              backgroundColor='--color-brand1'
-              color='--color-gray10'
-              borderColor='--color-gray10'
-              hoverBackgroundColor='--color-gray10'
-              hoverColor='--color-brand1'
-              hoverBorderColor='--color-gray10'
+              $size='big'
+              $width='100%'
+              $backgroundColor='--color-brand1'
+              $color='--color-gray10'
+              $borderColor='--color-gray10'
+              $hoverBackgroundColor='--color-gray10'
+              $hoverColor='--color-brand1'
+              $hoverBorderColor='--color-gray10'
               onClick={() => {
                 // setAnnouncement(auction);
                 // setIsUpdateAnnouncement(true);
