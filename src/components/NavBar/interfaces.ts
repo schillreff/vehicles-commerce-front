@@ -1,4 +1,4 @@
 export interface INavBar {
-  buttonMenu?: boolean;
-  userMenu?: boolean;
+  $buttonMenu?: boolean;
+  $userMenu?: boolean;
 }

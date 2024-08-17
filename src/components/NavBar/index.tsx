@@ -31,7 +31,7 @@ export const NavBar = () => {
 
   return (
     <StyledContainerHeader>
-      <StyledNavBar buttonMenu={buttonMenu} userMenu={userMenu}>
+      <StyledNavBar $buttonMenu={buttonMenu} $userMenu={userMenu}>
         <Link to={'/'}>
           <img src={logo} alt='logo' />
         </Link>

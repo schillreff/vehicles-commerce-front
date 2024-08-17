@@ -86,7 +86,7 @@ export const StyledNavBar = styled.div<INavBar>`
           border: solid 3px var(--color-gray6);
           border-radius: 4px;
           ${(props) =>
-            props.userMenu &&
+            props.$userMenu &&
             css`
               display: flex;
               animation: slideInDown 0.3s;
@@ -119,7 +119,7 @@ export const StyledNavBar = styled.div<INavBar>`
         border: solid 3px var(--color-gray6);
         border-radius: 4px;
         ${(props) =>
-          props.buttonMenu &&
+          props.$buttonMenu &&
           css`
             display: flex;
             animation: slideInDown 0.3s;
@@ -154,7 +154,7 @@ export const StyledNavBar = styled.div<INavBar>`
             border: 0;
             border-radius: 0;
             ${(props) =>
-              props.userMenu &&
+              props.$userMenu &&
               css`
                 display: flex;
                 animation: none;
