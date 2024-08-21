@@ -1,11 +1,14 @@
 import { useContext } from 'react';
+import { AnnouncementContext } from '../../../contexts/Announcement';
 import { UserContext } from '../../../contexts/User';
+import { CreateAnnouncementForm } from '../CreateAnnouncement';
 import { DeleteUserForm } from '../DeleteUser';
 import { EditAddressForm } from '../EditAddress';
 import { EditUserForm } from '../EditUser';
 
 export const CallModal = () => {
   const { user, modalUser } = useContext(UserContext);
+  const {modalAnnouncement} = useContext(AnnouncementContext);
 
   return (
     <>
@@ -14,6 +17,7 @@ export const CallModal = () => {
       )}
       {user && modalUser.editUser && <EditUserForm user={user} />}
       {modalUser.deleteUser && <DeleteUserForm />}
+      {modalAnnouncement.createAnnouncement && <CreateAnnouncementForm />} 
     </>
   );
 };

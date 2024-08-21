@@ -11,7 +11,6 @@ import { api } from '../../services/api';
 import {
   IAddress,
   IEditUser,
-  ImodalsUser,
   IRecoverPassword,
   ISendEmailRecover,
   ISignIn,
@@ -21,6 +20,7 @@ import {
   IUserProviderProps,
   IUserResponse,
 } from './interfaces';
+import { IModals } from '../../components/Modal/interfaces';
 
 export const UserContext = createContext({} as IUserContext);
 
@@ -29,7 +29,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const [token, setToken] = useState<string | null>(
     localStorage.getItem('@usermotorsshop:token'),
   );
-  const [modalUser, setModalUser] = useState<ImodalsUser>({
+  const [modalUser, setModalUser] = useState<IModals>({
     recoverPassword: false,
     editUser: false,
     editAddress: false,

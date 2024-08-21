@@ -1,11 +1,12 @@
 import { createContext, useMemo, useState } from 'react';
+import { FieldValues } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+import { IModals } from '../../components/Modal/interfaces';
 import { api } from '../../services/api';
 import {
   IAnnouncement,
   IAnnouncementContext,
-  IAnnouncementProviderProps,
-  IModalsAnnouncement,
+  IAnnouncementProviderProps
 } from './interfaces';
 
 export const AnnouncementContext = createContext({} as IAnnouncementContext);
@@ -19,12 +20,11 @@ export const AnnouncementProvider = ({
     IAnnouncement[]
   >([]);
 
-  const [modalAnnouncement, setModalAnnouncement] =
-    useState<IModalsAnnouncement>({
-      createAnnouncement: false,
-      updateAnnouncement: false,
-      deleteAnnouncement: false,
-    });
+  const [modalAnnouncement, setModalAnnouncement] = useState<IModals>({
+    createAnnouncement: false,
+    updateAnnouncement: false,
+    deleteAnnouncement: false,
+  });
 
   async function listAnnouncements() {
     try {
@@ -45,7 +45,7 @@ export const AnnouncementProvider = ({
     }
   };
 
-  const createAnnouncement = (data: IAnnouncement) => {
+  const createAnnouncement = (data: FieldValues) => {
     console.log(data);
   };
 
