@@ -1,12 +1,13 @@
-import { createContext, useMemo, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 import { FieldValues } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { IModals } from '../../components/Modal/interfaces';
 import { api } from '../../services/api';
+import { UserContext } from '../User';
 import {
   IAnnouncement,
   IAnnouncementContext,
-  IAnnouncementProviderProps
+  IAnnouncementProviderProps,
 } from './interfaces';
 
 export const AnnouncementContext = createContext({} as IAnnouncementContext);
@@ -25,6 +26,8 @@ export const AnnouncementProvider = ({
     updateAnnouncement: false,
     deleteAnnouncement: false,
   });
+
+  const { token } = useContext(UserContext);
 
   async function listAnnouncements() {
     try {
@@ -45,8 +48,49 @@ export const AnnouncementProvider = ({
     }
   };
 
-  const createAnnouncement = (data: FieldValues) => {
-    console.log(data);
+  const createAnnouncement = async (data: FieldValues) => {
+    const {
+      coverImage,
+      description,
+      mileage,
+      price,
+      title,
+      typeSale,
+      typeVehicle,
+      year,
+      ...rest
+    } = data;
+
+    let images = Object.values(rest).map((value: string) => {
+      return { url: value };
+    });
+
+    images = images.filter((image) => image.url != '');
+
+    const dataToSend = {
+      coverImage,
+      description,
+      mileage: parseInt(mileage),
+      price,
+      title,
+      typeSale,
+      typeVehicle,
+      year: parseInt(year),
+      images,
+      isActive: true,
+    };
+
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
+    const promiseCreate = api.post(`/announcements/`, dataToSend);
+
+    toast.promise(promiseCreate, {
+      loading: 'Carregando...',
+      success: () => {
+        setModalAnnouncement({ createAnnouncement: false });
+        return 'Anúncio criado com sucesso';
+      },
+      error: (error) => `${error.response.data.message}`,
+    });
   };
 
   const values = useMemo(

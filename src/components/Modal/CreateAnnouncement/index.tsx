@@ -102,7 +102,7 @@ export const CreateAnnouncementForm = () => {
               label='Quilometragem *'
               id='mileage'
               placeholder='0'
-              type='text'
+              type='number'
               {...register('mileage')}
               error={errors.mileage?.message}
             />
@@ -164,7 +164,7 @@ export const CreateAnnouncementForm = () => {
           ))}
 
           <Button
-            type='submit'
+            type='button'
             $size='medium'
             $backgroundColor='--color-brand3'
             $color='--color-white'
