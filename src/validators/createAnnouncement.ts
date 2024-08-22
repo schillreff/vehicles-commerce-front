@@ -7,7 +7,7 @@ export const schema = yup.object().shape({
     .required('Tipo da venda obrigatório')
     .transform((value) => value[0].replace(/["\\]/g, '')),
   year: yup.string().required('Ano obrigatório'),
-  mileage: yup.string().required('Quilometragem obrigatória'),
+  mileage: yup.number().typeError('Precisa ser um número').min(1).required('Quilometragem obrigatória'),
   price: yup.string().required('Preço obrigatório'),
   description: yup.string().required('Descrição obrigatória'),
   typeVehicle: yup

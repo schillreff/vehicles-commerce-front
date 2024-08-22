@@ -1,9 +1,18 @@
 import { ReactNode } from 'react';
-import { ImodalsUser } from '../../contexts/User/interfaces';
+
+export interface IModals {
+  recoverPassword?: boolean;
+  editUser?: boolean;
+  editAddress?: boolean;
+  deleteUser?: boolean;
+  createAnnouncement?: boolean;
+  updateAnnouncement?: boolean;
+  deleteAnnouncement?: boolean;
+}
 
 export interface IModalProps {
   children: ReactNode;
   title: string;
-  closeModal: React.Dispatch<React.SetStateAction<ImodalsUser>>;
-  modal: ImodalsUser;
+  closeModal: React.Dispatch<React.SetStateAction<IModals>>;
+  modal: IModals;
 }

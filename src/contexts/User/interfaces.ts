@@ -1,4 +1,5 @@
 import { ChangeEvent, Dispatch, ReactNode, SetStateAction } from 'react';
+import { IModals } from '../../components/Modal/interfaces';
 
 export interface ISignIn {
   email: string;
@@ -64,13 +65,6 @@ export interface IUserProviderProps {
   children: ReactNode;
 }
 
-export interface ImodalsUser {
-  recoverPassword: boolean;
-  editUser: boolean;
-  editAddress: boolean;
-  deleteUser: boolean;
-}
-
 export interface IUserInputValues {
   cpf: string;
   phone: string;
@@ -82,8 +76,8 @@ export interface IUserContext {
   setUser: Dispatch<SetStateAction<IUserResponse | null>>;
   token: string | null;
   setToken: Dispatch<SetStateAction<string | null>>;
-  modalUser: ImodalsUser;
-  setModalUser: Dispatch<SetStateAction<ImodalsUser>>;
+  modalUser: IModals;
+  setModalUser: Dispatch<SetStateAction<IModals>>;
   userInputValues: IUserInputValues;
   setUserInputValues: Dispatch<SetStateAction<IUserInputValues>>;
   searchParams: URLSearchParams;
