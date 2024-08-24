@@ -1,11 +1,14 @@
+import { useContext } from 'react';
 import {
   StyledText,
   StyledTitle,
 } from '../../../../styles/Typography/typography';
 import { splitName } from '../../../../utils/nameInitials';
+import { Button } from '../../../Button';
 import { UserImage } from '../../../UserImage';
 import { IProductCardProps } from './interfaces';
 import { StyledProductCard } from './style';
+import { AnnouncementContext } from '../../../../contexts/Announcement';
 
 const ProductCard = ({ product, viewButtons, isActive }: IProductCardProps) => {
   // const {
@@ -122,16 +125,16 @@ const ProductCard = ({ product, viewButtons, isActive }: IProductCardProps) => {
         </div>
       </div>
 
-      {/* {viewButtons && (
+       {/* {viewButtons && (
         <div className='productButtonsContainer'>
           <Button
             type='button'
             $width='fit-content'
-            $buttonText=''
+            // $buttonText=''
             $backgroundColor='--color-grey8'
             $color='--color-grey1'
             $borderColor='--color-grey1'
-            $borderLength='2px'
+            // $borderLength='2px'
             onClick={() => {
               setAnnouncement(product);
               setIsUpdateAnnouncement(true);
@@ -143,11 +146,11 @@ const ProductCard = ({ product, viewButtons, isActive }: IProductCardProps) => {
           <Button
             type='button'
             $width='fit-content'
-            $buttonText=''
+            // $buttonText=''
             $backgroundColor='--color-grey8'
             $color='--color-grey1'
             $borderColor='--color-grey1'
-            $borderLength='2px'
+            // $borderLength='2px'
             onClick={() => {
               listAnnouncementById(product.id);
               goTo(`/product?announcement=${product.id}`);
@@ -156,7 +159,7 @@ const ProductCard = ({ product, viewButtons, isActive }: IProductCardProps) => {
             Ver como
           </Button>
         </div>
-      )} */}
+      )}  */}
     </StyledProductCard>
   );
 };
