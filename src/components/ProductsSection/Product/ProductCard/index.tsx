@@ -9,21 +9,20 @@ import { UserImage } from '../../../UserImage';
 import { IProductCardProps } from './interfaces';
 import { StyledProductCard } from './style';
 import { AnnouncementContext } from '../../../../contexts/Announcement';
+import { UserContext } from '../../../../contexts/User';
 
 const ProductCard = ({ product, viewButtons, isActive }: IProductCardProps) => {
-  // const {
-  //   goTo,
-  //   listAnnouncementById,
-  //   setIsUpdateAnnouncement,
-  //   setAnnouncement,
-  // } = useContext(AnnouncementContext);
+  const { setAnnouncement, modalAnnouncement, setModalAnnouncement } =
+    useContext(AnnouncementContext);
+
+  const { navigateTo } = useContext(UserContext);
 
   return (
     <StyledProductCard>
       <div
         className='productContentContainer'
         onClick={() => {
-          // goTo(`/product?announcement=${product.id}`);
+          navigateTo(`/product?announcement=${product.id}`);
         }}
       >
         <div className='productImageContainer'>
@@ -125,19 +124,24 @@ const ProductCard = ({ product, viewButtons, isActive }: IProductCardProps) => {
         </div>
       </div>
 
-       {/* {viewButtons && (
+      {viewButtons && (
         <div className='productButtonsContainer'>
           <Button
             type='button'
-            $width='fit-content'
-            // $buttonText=''
-            $backgroundColor='--color-grey8'
-            $color='--color-grey1'
-            $borderColor='--color-grey1'
-            // $borderLength='2px'
+            $size='big'
+            $width='100%'
+            $color='--color-gray1'
+            $backgroundColor='--color-gray8'
+            $borderColor='--color-gray1'
+            $hoverColor='--color-gray10'
+            $hoverBackgroundColor='--color-gray1'
+            $hoverBorderColor='--color-gray1'
             onClick={() => {
               setAnnouncement(product);
-              setIsUpdateAnnouncement(true);
+              setModalAnnouncement({
+                ...modalAnnouncement,
+                updateAnnouncement: true,
+              });
             }}
           >
             Editar
@@ -145,21 +149,22 @@ const ProductCard = ({ product, viewButtons, isActive }: IProductCardProps) => {
 
           <Button
             type='button'
-            $width='fit-content'
-            // $buttonText=''
-            $backgroundColor='--color-grey8'
-            $color='--color-grey1'
-            $borderColor='--color-grey1'
-            // $borderLength='2px'
+            $size='big'
+            $width='100%'
+            $color='--color-gray1'
+            $backgroundColor='--color-gray8'
+            $borderColor='--color-gray1'
+            $hoverColor='--color-gray10'
+            $hoverBackgroundColor='--color-gray1'
+            $hoverBorderColor='--color-gray1'
             onClick={() => {
-              listAnnouncementById(product.id);
-              goTo(`/product?announcement=${product.id}`);
+              navigateTo(`/product?announcement=${product.id}`);
             }}
           >
             Ver como
           </Button>
         </div>
-      )}  */}
+      )}
     </StyledProductCard>
   );
 };

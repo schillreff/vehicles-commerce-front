@@ -14,12 +14,6 @@ export const StyledProductCard = styled.li`
   .productButtonsContainer {
     display: flex;
     gap: 25px;
-    button {
-      &:hover {
-        background: var(--color-grey1);
-        color: var(--color-grey10);
-      }
-    }
   }
 
   .productContentContainer {

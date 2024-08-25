@@ -20,6 +20,7 @@ export const AnnouncementProvider = ({
   const [announcementsSeller, setAnnouncementsSeller] = useState<
     IAnnouncement[]
   >([]);
+  const [announcement, setAnnouncement] = useState<IAnnouncement | null>(null);
 
   const [modalAnnouncement, setModalAnnouncement] = useState<IModals>({
     createAnnouncement: false,
@@ -99,6 +100,8 @@ export const AnnouncementProvider = ({
       setAnnouncements,
       announcementsSeller,
       setAnnouncementsSeller,
+      announcement,
+      setAnnouncement,
       modalAnnouncement,
       setModalAnnouncement,
       loading,
@@ -107,7 +110,13 @@ export const AnnouncementProvider = ({
       listAnnouncementsSeller,
       createAnnouncement,
     }),
-    [announcements, announcementsSeller, modalAnnouncement, loading],
+    [
+      announcements,
+      announcementsSeller,
+      announcement,
+      modalAnnouncement,
+      loading,
+    ],
   );
 
   return (
