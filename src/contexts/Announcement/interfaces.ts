@@ -50,6 +50,8 @@ export interface IAnnouncementContext {
   setAnnouncements: Dispatch<SetStateAction<IAnnouncement[]>>;
   announcementsSeller: IAnnouncement[];
   setAnnouncementsSeller: Dispatch<SetStateAction<IAnnouncement[]>>;
+  announcement: IAnnouncement | null;
+  setAnnouncement: Dispatch<SetStateAction<IAnnouncement | null>>;
   modalAnnouncement: IModals;
   setModalAnnouncement: Dispatch<SetStateAction<IModals>>;
   loading: boolean;
