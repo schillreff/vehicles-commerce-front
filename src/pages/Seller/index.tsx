@@ -11,10 +11,9 @@ import { UserContext } from '../../contexts/User';
 import { StyledSeller } from './styles';
 
 export const Seller = () => {
-  const { searchParams, user, navigateTo } = useContext(UserContext);
+  const { searchParams, user } = useContext(UserContext);
   const { listAnnouncementsSeller, announcementsSeller, modalAnnouncement } =
     useContext(AnnouncementContext);
-  //   console.log(searchParams.get('user'));
 
   const sellerID = searchParams.get('user');
   useEffect(() => {
@@ -54,6 +53,8 @@ export const Seller = () => {
                       (car: IAnnouncement) =>
                         car.typeVehicle === 'car' && car.typeSale === 'sale',
                     )}
+                    viewButtons={sellerID === user?.id}
+                    isActive={true}
                   />
                 </ProductsSection>
                 <ProductsSection id='motorcycle' listName='Motos'>
@@ -63,6 +64,8 @@ export const Seller = () => {
                         motorcycle.typeVehicle === 'motorcycle' &&
                         motorcycle.typeSale === 'sale',
                     )}
+                    viewButtons={sellerID === user?.id}
+                    isActive={true}
                   />
                 </ProductsSection>
               </>
