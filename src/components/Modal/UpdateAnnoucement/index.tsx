@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Modal } from '..';
 import { AnnouncementContext } from '../../../contexts/Announcement';
+import { IImage } from '../../../contexts/Announcement/interfaces';
 import { StyledText } from '../../../styles/Typography/typography';
 import { schema } from '../../../validators/createAnnouncement';
 import { currencyMask, yearMask } from '../../../validators/masks';
@@ -13,9 +14,16 @@ import { TextareaLabel } from '../../Form/TextareaLabel';
 import { StyledUpdateAnnouncement } from './style';
 
 export const UpdateAnnouncementForm = () => {
-  const [imagesFields, setImagesFields] = useState([1]);
-  const { createAnnouncement, modalAnnouncement, setModalAnnouncement } =
-    useContext(AnnouncementContext);
+  const {
+    announcement,
+    createAnnouncement,
+    modalAnnouncement,
+    setModalAnnouncement,
+  } = useContext(AnnouncementContext);
+
+  const [imagesFields, setImagesFields] = useState<Array<number | IImage>>(
+    announcement ? announcement.images : [1],
+  );
 
   const {
     register,
@@ -27,8 +35,8 @@ export const UpdateAnnouncementForm = () => {
   });
 
   const [values, setValues] = useState({
-    year: '',
-    price: '0',
+    year: announcement ? String(announcement?.year) : '',
+    price: announcement ? announcement?.price : '0',
   });
 
   const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,14 +52,18 @@ export const UpdateAnnouncementForm = () => {
     setImagesFields([...imagesFields]);
   };
 
-  const [selectedTypeSale, setSelectedTypeSale] = useState<string>('sale');
-  const [selectedTypeVehicle, setSelectedTypeVehicle] = useState<string>('car');
+  const [selectedTypeSale, setSelectedTypeSale] = useState<string>(
+    announcement ? announcement.typeSale : 'sale',
+  );
+  const [selectedTypeVehicle, setSelectedTypeVehicle] = useState<string>(
+    announcement ? announcement.typeVehicle : 'car',
+  );
 
   return (
     <Modal
       title='Criar Anúncio'
       closeModal={setModalAnnouncement}
-      modal={{ ...modalAnnouncement, createAnnouncement: false }}
+      modal={{ ...modalAnnouncement, updateAnnouncement: false }}
     >
       <StyledUpdateAnnouncement>
         <StyledForm
@@ -82,6 +94,7 @@ export const UpdateAnnouncementForm = () => {
             id='title'
             placeholder='Digitar título'
             type='text'
+            defaultValue={announcement?.title}
             {...register('title')}
             error={errors.title?.message}
           />
@@ -103,6 +116,7 @@ export const UpdateAnnouncementForm = () => {
               id='mileage'
               placeholder='0'
               type='number'
+              defaultValue={announcement?.mileage}
               {...register('mileage')}
               error={errors.mileage?.message}
             />
@@ -123,6 +137,7 @@ export const UpdateAnnouncementForm = () => {
             label='Descrição *'
             id='description'
             placeholder='Digitar descrição'
+            defaultValue={announcement?.description}
             {...register('description')}
             error={errors.description?.message}
           />
@@ -147,19 +162,21 @@ export const UpdateAnnouncementForm = () => {
             id='coverImage'
             placeholder='Inserir URL da imagem'
             type='text'
+            defaultValue={announcement?.coverImage}
             {...register('coverImage')}
             error={errors.coverImage?.message}
           />
 
-          {imagesFields.map((number) => (
+          {imagesFields.map((image, index) => (
             <InputLabel
-              label={`${number}ª imagem da galeria${number === 1 ? ' *' : ''}`}
-              id={`image${number}`}
+              label={`${index + 1}ª imagem da galeria`}
+              id={`image${index + 1}`}
               placeholder='Inserir URL da imagem'
+              defaultValue={typeof image == 'object' ? image.url : undefined}
               type='text'
-              {...register(`image${number}`)}
+              {...register(`image${index + 1}`)}
               error={errors.image1?.message}
-              key={number}
+              key={index + 1}
             />
           ))}
 
@@ -190,7 +207,7 @@ export const UpdateAnnouncementForm = () => {
               onClick={() =>
                 setModalAnnouncement({
                   ...modalAnnouncement,
-                  createAnnouncement: false,
+                  updateAnnouncement: false,
                 })
               }
             >
@@ -207,7 +224,7 @@ export const UpdateAnnouncementForm = () => {
               $hoverColor='--color-brand1'
               $hoverBorderColor='--color-brand4'
             >
-              Criar
+              Editar
             </Button>
           </div>
         </StyledForm>
