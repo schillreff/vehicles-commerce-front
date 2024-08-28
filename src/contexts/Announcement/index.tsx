@@ -94,6 +94,57 @@ export const AnnouncementProvider = ({
     });
   };
 
+  const updateAnnouncement = async (data: FieldValues, id: string) => {
+    const {
+      coverImage,
+      description,
+      mileage,
+      price,
+      title,
+      typeSale,
+      typeVehicle,
+      year,
+      isActive,
+      ...rest
+    } = data;
+
+    let images = Object.values(rest).map((value: string) => {
+      return { url: value };
+    });
+
+    images = images.filter((image) => image.url != '');
+
+    const dataToSend = {
+      coverImage,
+      description,
+      mileage: parseInt(mileage),
+      price,
+      title,
+      typeSale,
+      typeVehicle,
+      year: parseInt(year),
+      images,
+      isActive: isActive == 'true',
+    };
+    console.log(id);
+    console.log(dataToSend);
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
+    const promiseUpdate = api.patch(`/announcements/${id}`, dataToSend);
+
+    toast.promise(promiseUpdate, {
+      loading: 'Carregando...',
+      success: () => {
+        setModalAnnouncement({
+          ...modalAnnouncement,
+          updateAnnouncement: false,
+        });
+
+        return 'Anúncio atualizado com sucesso';
+      },
+      error: (error) => `${error.response.data.message}`,
+    });
+  };
+
   const values = useMemo(
     () => ({
       announcements,
@@ -109,6 +160,7 @@ export const AnnouncementProvider = ({
       listAnnouncements,
       listAnnouncementsSeller,
       createAnnouncement,
+      updateAnnouncement,
     }),
     [
       announcements,

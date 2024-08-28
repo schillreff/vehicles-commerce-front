@@ -59,4 +59,5 @@ export interface IAnnouncementContext {
   listAnnouncements: () => void;
   listAnnouncementsSeller: (id: string) => void;
   createAnnouncement: (data: FieldValues) => void;
+  updateAnnouncement: (data: FieldValues, id: string) => Promise<void>;
 }
