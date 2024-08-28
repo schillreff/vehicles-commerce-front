@@ -5,7 +5,7 @@ import { Modal } from '..';
 import { AnnouncementContext } from '../../../contexts/Announcement';
 import { IImage } from '../../../contexts/Announcement/interfaces';
 import { StyledText } from '../../../styles/Typography/typography';
-import { schema } from '../../../validators/createAnnouncement';
+import { schema } from '../../../validators/updateAnnouncement';
 import { currencyMask, yearMask } from '../../../validators/masks';
 import { Button } from '../../Button';
 import { StyledForm, StyledOption, StyledSelect } from '../../Form';
@@ -16,7 +16,7 @@ import { StyledUpdateAnnouncement } from './style';
 export const UpdateAnnouncementForm = () => {
   const {
     announcement,
-    createAnnouncement,
+    updateAnnouncement,
     modalAnnouncement,
     setModalAnnouncement,
   } = useContext(AnnouncementContext);
@@ -59,6 +59,10 @@ export const UpdateAnnouncementForm = () => {
     announcement ? announcement.typeVehicle : 'car',
   );
 
+  const [selectedIsActive, setSelectedIsActive] = useState<string>(
+    announcement.isActive ? 'true' : 'false',
+  );
+
   return (
     <Modal
       title='Criar Anúncio'
@@ -68,7 +72,9 @@ export const UpdateAnnouncementForm = () => {
       <StyledUpdateAnnouncement>
         <StyledForm
           className='update-announcement-form'
-          onSubmit={handleSubmit(createAnnouncement)}
+          onSubmit={handleSubmit((data) =>
+            updateAnnouncement(data, announcement ? announcement.id : 'id'),
+          )}
         >
           <StyledText tag='p' style='body-2' weight='500' color='--color-gray0'>
             Tipo de anúncio
@@ -155,6 +161,17 @@ export const UpdateAnnouncementForm = () => {
           >
             <StyledOption value='car'>Carro</StyledOption>
             <StyledOption value='motorcycle'>Moto</StyledOption>
+          </StyledSelect>
+
+          <StyledSelect
+            id='isActive'
+            multiple
+            {...register('isActive')}
+            value={[selectedIsActive]}
+            onChange={(event) => setSelectedIsActive(event.target.value)}
+          >
+            <StyledOption value='true'>Sim</StyledOption>
+            <StyledOption value='false'>Não</StyledOption>
           </StyledSelect>
 
           <InputLabel
