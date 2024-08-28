@@ -29,7 +29,7 @@ export const StyledProductCard = styled.li`
     overflow: hidden;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-grey7);
+    background-color: var(--color-gray7);
     border: 1px solid transparent;
     transition: 0.5s;
     height: 152px;
@@ -53,7 +53,7 @@ export const StyledProductCard = styled.li`
       position: absolute;
       top: 11px;
       left: 16px;
-      background: var(--color-grey4);
+      background: var(--color-gray4);
       padding: 0px 8px;
     }
   }
