@@ -60,7 +60,7 @@ export const UpdateAnnouncementForm = () => {
   );
 
   const [selectedIsActive, setSelectedIsActive] = useState<string>(
-    announcement ? 'true' : 'false',
+    announcement ? String(announcement.isActive) : 'false',
   );
 
   return (
