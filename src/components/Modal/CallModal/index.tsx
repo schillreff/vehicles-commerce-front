@@ -5,7 +5,7 @@ import { CreateAnnouncementForm } from '../CreateAnnouncement';
 import { DeleteUserForm } from '../DeleteUser';
 import { EditAddressForm } from '../EditAddress';
 import { EditUserForm } from '../EditUser';
-import { UpdateAnnouncementForm } from '../UpdateAnnoucement';
+import { UpdateAnnouncementForm } from '../UpdateAnnouncement';
 
 export const CallModal = () => {
   const { user, modalUser } = useContext(UserContext);
