@@ -60,7 +60,7 @@ export const UpdateAnnouncementForm = () => {
   );
 
   const [selectedIsActive, setSelectedIsActive] = useState<string>(
-    announcement.isActive ? 'true' : 'false',
+    announcement ? 'true' : 'false',
   );
 
   return (
@@ -162,6 +162,10 @@ export const UpdateAnnouncementForm = () => {
             <StyledOption value='car'>Carro</StyledOption>
             <StyledOption value='motorcycle'>Moto</StyledOption>
           </StyledSelect>
+
+          <StyledText tag='p' style='body-2' weight='500' color='--color-gray0'>
+            Anúncio Publicado
+          </StyledText>
 
           <StyledSelect
             id='isActive'
