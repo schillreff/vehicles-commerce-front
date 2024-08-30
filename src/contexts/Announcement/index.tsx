@@ -126,8 +126,7 @@ export const AnnouncementProvider = ({
       images,
       isActive: isActive == 'true',
     };
-    console.log(id);
-    console.log(dataToSend);
+
     api.defaults.headers.common.authorization = `Bearer ${token}`;
     const promiseUpdate = api.patch(`/announcements/${id}`, dataToSend);
 
