@@ -45,6 +45,7 @@ export const Seller = () => {
                       (auction: IAnnouncement) =>
                         auction.typeSale === 'auction',
                     )}
+                    viewButtons={sellerID === user?.id}
                   />
                 </ProductsSection>
                 <ProductsSection id='car' listName='Carros'>

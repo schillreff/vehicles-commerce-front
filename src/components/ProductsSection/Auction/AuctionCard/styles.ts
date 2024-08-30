@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface IAuctionCardProps {
-  imageUrl: string;
+  $imageUrl: string;
 }
 
 export const StyledAuctionCard = styled.li<IAuctionCardProps>`
@@ -21,7 +21,7 @@ export const StyledAuctionCard = styled.li<IAuctionCardProps>`
         rgba(0, 0, 0, 0.29) 0%,
         #000000 100%
       ),
-      url(${(props) => props.imageUrl});
+      url(${(props) => props.$imageUrl});
     background-size: 100% auto;
     background-position: center;
     background-repeat: no-repeat;
@@ -114,6 +114,8 @@ export const StyledAuctionCard = styled.li<IAuctionCardProps>`
 
     .auction-nav__buttons {
       display: flex;
+      width: 100%;
+      justify-content: center;
       gap: 25px;
     }
 
@@ -133,7 +135,7 @@ export const StyledAuctionCard = styled.li<IAuctionCardProps>`
           rgba(0, 0, 0, 0.71) 0%,
           #000000 100%
         ),
-        url(${(props) => props.imageUrl});
+        url(${(props) => props.$imageUrl});
     }
 
     .auction-nav {
