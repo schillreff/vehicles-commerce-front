@@ -41,7 +41,7 @@ export interface IAddress {
   city: string;
   road: string;
   number: string;
-  complement?: string;
+  complement: string;
 }
 
 export interface IAddressResponse extends IAddress {
