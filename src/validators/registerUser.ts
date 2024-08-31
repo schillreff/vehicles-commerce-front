@@ -33,7 +33,7 @@ export const schema = yup.object().shape({
     city: yup.string().required('Cidade é obrigatório'),
     road: yup.string().required('Rua é obrigatório'),
     number: yup.string().required('Número é obrigatório'),
-    complement: yup.string().notRequired(),
+    complement: yup.string().required('Complemento é obrigatório'),
   }),
-  isSeller: yup.boolean(),
+  isSeller: yup.boolean().required('Tipo de conta é obrigatório'),
 });
