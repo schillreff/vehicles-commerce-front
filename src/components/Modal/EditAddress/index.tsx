@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Modal } from '..';
 import { UserContext } from '../../../contexts/User';
 import { IAddress } from '../../../contexts/User/interfaces';
-import { schema } from '../../../validators/editAdress';
+import { schema } from '../../../validators/editAddress';
 import { cepMask } from '../../../validators/masks';
 import { Button } from '../../Button';
 import { StyledForm } from '../../Form';
