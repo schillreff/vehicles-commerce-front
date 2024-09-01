@@ -43,9 +43,9 @@ export const StyledModal = styled.div`
 
       .container-modal__content__close {
         display: flex;
+        border-radius: 4px;
         &:hover {
           background: var(--color-gray6);
-          border-radius: 4px;
           cursor: pointer;
         }
       }

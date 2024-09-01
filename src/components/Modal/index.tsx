@@ -21,12 +21,12 @@ export const Modal = ({ children, title, closeModal, modal }: IModalProps) => {
             >
               {title}
             </StyledTitle>
-            <div
+            <button
               className='container-modal__content__close'
               onClick={() => closeModal(modal)}
             >
-              <MdClose size={30}/>
-            </div>
+              <MdClose size={30} />
+            </button>
           </div>
           {children}
         </div>
