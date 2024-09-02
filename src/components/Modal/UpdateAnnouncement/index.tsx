@@ -232,7 +232,7 @@ export const UpdateAnnouncementForm = () => {
                 })
               }
             >
-              Cancelar
+              Excluir
             </Button>
 
             <Button
