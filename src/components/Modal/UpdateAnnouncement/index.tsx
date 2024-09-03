@@ -232,7 +232,7 @@ export const UpdateAnnouncementForm = () => {
                 })
               }
             >
-              Excluir
+              Excluir anúncio
             </Button>
 
             <Button
@@ -245,7 +245,7 @@ export const UpdateAnnouncementForm = () => {
               $hoverColor='--color-brand1'
               $hoverBorderColor='--color-brand4'
             >
-              Editar
+              Editar anúncio
             </Button>
           </div>
         </StyledForm>
