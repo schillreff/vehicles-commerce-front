@@ -1,6 +1,6 @@
 import { Dispatch, ReactNode, SetStateAction } from 'react';
-import { IModals } from '../../components/Modal/interfaces';
 import { FieldValues } from 'react-hook-form';
+import { IModals } from '../../components/Modal/interfaces';
 
 export interface IImage {
   id: string;
@@ -52,6 +52,8 @@ export interface IAnnouncementContext {
   setAnnouncementsSeller: Dispatch<SetStateAction<IAnnouncement[]>>;
   announcement: IAnnouncement | null;
   setAnnouncement: Dispatch<SetStateAction<IAnnouncement | null>>;
+  announcementIdToDelete: string;
+  setAnnouncementIdToDelete: Dispatch<React.SetStateAction<string>>;
   modalAnnouncement: IModals;
   setModalAnnouncement: Dispatch<SetStateAction<IModals>>;
   loading: boolean;
@@ -60,4 +62,6 @@ export interface IAnnouncementContext {
   listAnnouncementsSeller: (id: string) => void;
   createAnnouncement: (data: FieldValues) => void;
   updateAnnouncement: (data: FieldValues, id: string) => Promise<void>;
+  deleteAnnouncement: (id: string) => Promise<void>;
+  callFunctionToDeleteAnnouncement: (id: string) => void;
 }

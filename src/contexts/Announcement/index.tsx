@@ -21,7 +21,8 @@ export const AnnouncementProvider = ({
     IAnnouncement[]
   >([]);
   const [announcement, setAnnouncement] = useState<IAnnouncement | null>(null);
-
+  const [announcementIdToDelete, setAnnouncementIdToDelete] =
+    useState<string>('');
   const [modalAnnouncement, setModalAnnouncement] = useState<IModals>({
     createAnnouncement: false,
     updateAnnouncement: false,
@@ -144,6 +145,32 @@ export const AnnouncementProvider = ({
     });
   };
 
+  const deleteAnnouncement = async (id: string) => {
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
+    const promiseDelete = api.delete(`/announcements/${id}`);
+
+    toast.promise(promiseDelete, {
+      loading: 'Excluindo...',
+      success: () => {
+        setModalAnnouncement({
+          ...modalAnnouncement,
+          deleteAnnouncement: false,
+        });
+        return 'Anúncio excluído com sucesso';
+      },
+      error: (error) => `${error.response.data.message}`,
+    });
+  };
+
+  const callFunctionToDeleteAnnouncement = (id: string) => {
+    setAnnouncementIdToDelete(id);
+    setModalAnnouncement({
+      ...modalAnnouncement,
+      updateAnnouncement: false,
+      deleteAnnouncement: true,
+    });
+  };
+
   const values = useMemo(
     () => ({
       announcements,
@@ -152,6 +179,8 @@ export const AnnouncementProvider = ({
       setAnnouncementsSeller,
       announcement,
       setAnnouncement,
+      announcementIdToDelete,
+      setAnnouncementIdToDelete,
       modalAnnouncement,
       setModalAnnouncement,
       loading,
@@ -160,11 +189,14 @@ export const AnnouncementProvider = ({
       listAnnouncementsSeller,
       createAnnouncement,
       updateAnnouncement,
+      deleteAnnouncement,
+      callFunctionToDeleteAnnouncement,
     }),
     [
       announcements,
       announcementsSeller,
       announcement,
+      announcementIdToDelete,
       modalAnnouncement,
       loading,
     ],
