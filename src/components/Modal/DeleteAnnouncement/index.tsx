@@ -5,13 +5,12 @@ import { StyledText, StyledTitle } from '../../../styles/Typography/typography';
 import { Button } from '../../Button';
 import { StyledDeleteAnnouncement } from './style';
 
-
 export const DeleteUserForm = () => {
   const { modalUser, setModalUser, deleteUser } = useContext(UserContext);
 
   return (
     <Modal
-      title='Excluir Conta'
+      title='Exluir anúncio'
       closeModal={setModalUser}
       modal={{ ...modalUser, deleteUser: false }}
     >
@@ -22,7 +21,7 @@ export const DeleteUserForm = () => {
           weight='500'
           color='--color-gray0'
         >
-          Tem certeza que deseja remover sua conta?
+          Tem certeza que deseja remover esse anúncio?
         </StyledTitle>
 
         <StyledText tag='p' weight='400' style='body-1' color='--color-gray2'>
@@ -30,7 +29,7 @@ export const DeleteUserForm = () => {
           conta e removerá seus dados de nossos servidores.
         </StyledText>
 
-        <div className='delete-user-form__buttons'>
+        <div className='delete-announcement-form__buttons'>
           <Button
             type='button'
             $size='big'
@@ -56,7 +55,7 @@ export const DeleteUserForm = () => {
             $hoverBorderColor='--color-alert1'
             onClick={() => deleteUser()}
           >
-            Excluir
+            Sim, excluir anúncio
           </Button>
         </div>
       </StyledDeleteAnnouncement>

@@ -10,7 +10,7 @@ export const StyledDeleteAnnouncement = styled.div`
     text-align: justify;
   }
 
-  .delete-user-form__buttons {
+  .delete-announcement-form__buttons {
     display: flex;
     align-self: flex-end;
     gap: 16px;
