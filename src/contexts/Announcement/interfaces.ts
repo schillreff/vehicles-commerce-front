@@ -63,5 +63,5 @@ export interface IAnnouncementContext {
   createAnnouncement: (data: FieldValues) => void;
   updateAnnouncement: (data: FieldValues, id: string) => Promise<void>;
   deleteAnnouncement: (id: string) => Promise<void>;
-  callFunctionToDeleteAnnouncement: (id: string) => void;
+  callFunctionToDeleteAnnouncement: () => void;
 }

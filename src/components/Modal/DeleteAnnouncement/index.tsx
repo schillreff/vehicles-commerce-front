@@ -1,18 +1,23 @@
 import { useContext } from 'react';
 import { Modal } from '..';
-import { UserContext } from '../../../contexts/User';
+import { AnnouncementContext } from '../../../contexts/Announcement';
 import { StyledText, StyledTitle } from '../../../styles/Typography/typography';
 import { Button } from '../../Button';
 import { StyledDeleteAnnouncement } from './style';
 
 export const DeleteUserForm = () => {
-  const { modalUser, setModalUser, deleteUser } = useContext(UserContext);
+  const {
+    modalAnnouncement,
+    setModalAnnouncement,
+    announcementIdToDelete,
+    deleteAnnouncement,
+  } = useContext(AnnouncementContext);
 
   return (
     <Modal
       title='Exluir anúncio'
-      closeModal={setModalUser}
-      modal={{ ...modalUser, deleteUser: false }}
+      closeModal={setModalAnnouncement}
+      modal={{ ...modalAnnouncement, deleteAnnouncement: false }}
     >
       <StyledDeleteAnnouncement>
         <StyledTitle
@@ -39,7 +44,12 @@ export const DeleteUserForm = () => {
             $hoverColor='--color-white'
             $hoverBackgroundColor='--color-gray1'
             $hoverBorderColor='--color-gray1'
-            onClick={() => setModalUser({ ...modalUser, deleteUser: false })}
+            onClick={() =>
+              setModalAnnouncement({
+                ...modalAnnouncement,
+                deleteAnnouncement: false,
+              })
+            }
           >
             Cancelar
           </Button>
@@ -53,7 +63,7 @@ export const DeleteUserForm = () => {
             $hoverBackgroundColor='--color-alert1'
             $hoverColor='--color-gray10'
             $hoverBorderColor='--color-alert1'
-            onClick={() => deleteUser()}
+            onClick={() => deleteAnnouncement(announcementIdToDelete)}
           >
             Sim, excluir anúncio
           </Button>
