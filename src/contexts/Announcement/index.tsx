@@ -162,8 +162,8 @@ export const AnnouncementProvider = ({
     });
   };
 
-  const callFunctionToDeleteAnnouncement = (id: string) => {
-    setAnnouncementIdToDelete(id);
+  const callFunctionToDeleteAnnouncement = () => {
+    setAnnouncementIdToDelete(announcement ? announcement.id : 'id');
     setModalAnnouncement({
       ...modalAnnouncement,
       updateAnnouncement: false,
