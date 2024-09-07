@@ -5,7 +5,7 @@ import { StyledText, StyledTitle } from '../../../styles/Typography/typography';
 import { Button } from '../../Button';
 import { StyledDeleteAnnouncement } from './style';
 
-export const DeleteUserForm = () => {
+export const DeleteAnnoucementForm = () => {
   const {
     modalAnnouncement,
     setModalAnnouncement,

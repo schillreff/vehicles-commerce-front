@@ -228,7 +228,7 @@ export const UpdateAnnouncementForm = () => {
               onClick={() =>
                 setModalAnnouncement({
                   ...modalAnnouncement,
-                  updateAnnouncement: false,
+                  deleteAnnouncement: true,
                 })
               }
             >
