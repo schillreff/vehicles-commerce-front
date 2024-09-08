@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { AnnouncementContext } from '../../../contexts/Announcement';
 import { UserContext } from '../../../contexts/User';
 import { CreateAnnouncementForm } from '../CreateAnnouncement';
+import { DeleteAnnoucementForm } from '../DeleteAnnouncement';
 import { DeleteUserForm } from '../DeleteUser';
 import { EditAddressForm } from '../EditAddress';
 import { EditUserForm } from '../EditUser';
@@ -20,6 +21,7 @@ export const CallModal = () => {
       {modalUser.deleteUser && <DeleteUserForm />}
       {modalAnnouncement.createAnnouncement && <CreateAnnouncementForm />}
       {modalAnnouncement.updateAnnouncement && <UpdateAnnouncementForm />}
+      {modalAnnouncement.deleteAnnouncement && <DeleteAnnoucementForm />}
     </>
   );
 };
