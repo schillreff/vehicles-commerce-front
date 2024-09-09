@@ -5,8 +5,8 @@ import { Modal } from '..';
 import { AnnouncementContext } from '../../../contexts/Announcement';
 import { IImage } from '../../../contexts/Announcement/interfaces';
 import { StyledText } from '../../../styles/Typography/typography';
-import { schema } from '../../../validators/updateAnnouncement';
 import { currencyMask, yearMask } from '../../../validators/masks';
+import { schema } from '../../../validators/updateAnnouncement';
 import { Button } from '../../Button';
 import { StyledForm, StyledOption, StyledSelect } from '../../Form';
 import { InputLabel } from '../../Form/InputLabel';
@@ -19,6 +19,7 @@ export const UpdateAnnouncementForm = () => {
     updateAnnouncement,
     modalAnnouncement,
     setModalAnnouncement,
+    callFunctionToDeleteAnnouncement,
   } = useContext(AnnouncementContext);
 
   const [imagesFields, setImagesFields] = useState<Array<number | IImage>>(
@@ -225,12 +226,7 @@ export const UpdateAnnouncementForm = () => {
               $hoverColor='--color-white'
               $hoverBackgroundColor='--color-gray1'
               $hoverBorderColor='--color-gray1'
-              onClick={() =>
-                setModalAnnouncement({
-                  ...modalAnnouncement,
-                  deleteAnnouncement: true,
-                })
-              }
+              onClick={() => callFunctionToDeleteAnnouncement()}
             >
               Excluir anúncio
             </Button>

@@ -30,8 +30,8 @@ export const DeleteAnnoucementForm = () => {
         </StyledTitle>
 
         <StyledText tag='p' weight='400' style='body-1' color='--color-gray2'>
-          Essa ação não pode ser desfeita. Isso excluirá permanentemente sua
-          conta e removerá seus dados de nossos servidores.
+          Essa ação não pode ser desfeita. Isso excluirá permanentemente os
+          dados de nossos servidores.
         </StyledText>
 
         <div className='delete-announcement-form__buttons'>
