@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
+import { Error404 } from '../pages/Error404';
 import { Home } from '../pages/Home';
 import { Login } from '../pages/Login';
+import { Product } from '../pages/Product';
 import { RecoverPassword } from '../pages/RecoverPassword';
 import { Register } from '../pages/Register';
 import { Seller } from '../pages/Seller';
-import { Error404 } from '../pages/Error404';
 
 export const RoutesMain = () => (
   <Routes>
@@ -13,6 +14,7 @@ export const RoutesMain = () => (
     <Route path='/register' element={<Register />} />
     <Route path='/reset-password' element={<RecoverPassword />} />
     <Route path='/seller' element={<Seller />} />
+    <Route path='/product' element={<Product />} />
     <Route path='*' element={<Error404 />} />
   </Routes>
 );
