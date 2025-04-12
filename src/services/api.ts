@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'https://vehicles-commerce-api.vercel.app/',
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 10000,
 });
